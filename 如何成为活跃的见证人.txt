@@ -1,0 +1,37 @@
+											如何成为活跃的见证人
+见证人是区块的产生者,是比特股的维护者。
+
+工具：命令行钱包
+
+1.必须是终身会员
+	升级会员：
+		upgrade_account test true
+
+2.必须成为见证人
+	create_witness test "" true
+
+3.大家给你投票，如果票数够的话，过了维护周期，会成为活跃的见证人。
+
+4.更新见证人的见证公钥，见证人的私钥是要存放在 服务器里的，为了安全性，可以更换 为任意的公私钥对
+signed_transaction graphene::wallet::wallet_api::update_witness(string witness_name, string url, string block_signing_key, bool broadcast = false)
+
+Demo:
+update_witness r18620292568  ""  “公钥BTSxxxxxxxxxxxxx" true 
+
+
+5.更新服务器config.ini，填入上面的公私钥对和见证人的ID。
+Demo:
+witness-id = "1.6.15"
+private-key = ["公钥BTSxxxxx","私钥5xxxxxxxxxxx"]
+
+
+
+
+
+
+
+
+
+
+
+
